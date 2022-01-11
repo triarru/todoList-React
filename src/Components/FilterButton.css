@@ -7,7 +7,7 @@
 }
 
 .btn{
-    border: 1.5px solid black;
+    border: none;
     background-color: white;
     color: black;
     padding: 10px;
@@ -19,23 +19,23 @@
 }
 
 .btn:hover{
-    background-color: gray;
+    background-color: palevioletred;
     color: white;
     
 }
 
 .allbtn{
-    background-color: gray;
+    background-color: palevioletred;
     color: white; 
 }
 
 .completebtn{
-    background-color: gray;
+    background-color: palevioletred;
     color: white; 
 }
 
 .activebtn{
-    background-color: gray;
+    background-color: palevioletred;
     color: white; 
 }
 
@@ -57,9 +57,10 @@ div{
 .footer{
     display: flex;
     width: 772px;
-    border:1px solid gray;
+    border: 1px solid gainsboro;
     border-top: none;
     height: 50px;
+    background-color: white;
 }
 
 .floatleft{

@@ -61,13 +61,13 @@ class App extends Component{
      }
   }
 
-  allItems = () =>{ //
+  allItems = () =>{ //Filter ra mảng todo gốc
       this.setState({
           filterType : 'all'
       })
   }
 
-  completedItems = () =>{
+  completedItems = () =>{ //Filter ra mảng todo đã hoàn thành
       const {list} = this.state
       this.setState({
           completedItems : list.filter(e => e.isComplete),
@@ -75,7 +75,7 @@ class App extends Component{
       })
   }
 
-  activeItems = () =>{
+  activeItems = () =>{ //Filter ra mảng todo đang làm
       const {list} = this.state
       this.setState({
           activeItems : list.filter(e => !e.isComplete),
@@ -83,7 +83,7 @@ class App extends Component{
       })
   }
 
-  clearCompleted = () =>{
+  clearCompleted = () =>{ //Xóa toàn bộ các todo đã hoàn thành
     const {list,completedItems} = this.state
     this.setState({
       list : list.filter(e => !e.isComplete),
@@ -91,7 +91,7 @@ class App extends Component{
     })
   }
 
-  onClicked(e){
+  onClicked(e){ //Nhấn hoàn thành todo hoặc ngược lại
       return(event) =>{
         const isComplete = e.isComplete
         const {list,activeItems,completedItems,filterType} = this.state
@@ -122,7 +122,7 @@ class App extends Component{
       }
   }
 
-  doneAll = () =>{
+  doneAll = () =>{ //Bấm mũi tên để hoàn thành hết tất cả todo hoặc ngược lại
       const {list} = this.state
       if(list.every(e => e.isComplete === true)){
         this.setState({
@@ -145,7 +145,7 @@ class App extends Component{
       }
   }
 
-  deleteItem(e){
+  deleteItem(e){ // Nhấn x để xóa todo
       return(event) =>{
           const {list, completedItems, activeItems, filterType} = this.state
           const index = list.indexOf(e)
@@ -171,12 +171,11 @@ class App extends Component{
       }
   } 
 
-  onKeyDown = (event) =>{
+  onKeyDown = (event) =>{ //Nhấn Enter ở input 'what need to be done' để log ra todo
     const { list } = this.state
       if (event.key === 'Enter' && event.target.value.trim()!==''){
-          
           let val = event.target.value
-          let list2 = [...list,{item : val , isComplete: false, isEditing :false }]
+          let list2 = [...list,{item : val , isComplete : false, isEditing : false }]
           this.setState({ 
               list : list2,
               activeItems :list2
@@ -186,7 +185,7 @@ class App extends Component{
       }
   }
 
-  componentDidMount() {
+  componentDidMount() { //Update mảng todo vào localStorage để biến mất khi f5 lại trang
     let name = []
     if(localStorage.hasOwnProperty('name')){
       name = JSON.parse(localStorage.getItem('name'))
@@ -194,7 +193,7 @@ class App extends Component{
     this.setState({ list : name });
   }
   
-  componentDidUpdate() {
+  componentDidUpdate() { //Update mảng todo vào localStorage mỗi khi update 1 component
     const list2 = this.state.list
     localStorage.setItem('name', JSON.stringify(list2))
   }
@@ -203,7 +202,7 @@ class App extends Component{
     const {list,completedItems,activeItems,filterType} = this.state
     var arr = list
 
-    switch(filterType){
+    switch(filterType){ //Hiện thị các mảng filter khác nhau
         case 'complete':
             arr = list 
             arr = [...completedItems]
@@ -228,7 +227,7 @@ class App extends Component{
           <div>
             {arr.map((e,index)=>
                 <div key={index} className={e.isComplete ? 'Input-checked' : 'Input-unchecked'}>
-                  <img src={e.isComplete ? done : undone} width={32} height={32}
+                  <img src={e.isComplete ? done : undone} className='checkImg' width={32} height={32}
                   onClick={this.onClicked(e)}
                   ></img>
                   {!e.isEditing ? 

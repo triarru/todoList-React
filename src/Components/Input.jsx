@@ -14,7 +14,7 @@ class Input extends Component {
                         className="arrow"
                         src={dwnarrow} width={32} height={32}
                         onClick={doneAll}/>
-                        <input 
+                        <input
                         type="text" id="input" name="inputTodo"
                         placeholder="What needs to be done ?"
                         onKeyPress={onKeyDown}>

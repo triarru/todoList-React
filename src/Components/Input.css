@@ -2,9 +2,14 @@
     text-align: center;
     flex-wrap: nowrap;
     width: 772px;
-    border: 1px solid black;
+    border: 1px solid gainsboro;
+    background-color: white;
 }
 
 .arrow{
     margin: auto;
+}
+
+input:focus{
+    outline: none;
 }

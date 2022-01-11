@@ -16,11 +16,15 @@ body{
   color: palevioletred;
   text-align: center;
   opacity: 0.3;
+  padding: 30px;
+}
 
+.todosText{
+  font-size: 100px;
+  font-weight: 100;
 }
 
 .inputBox{
-  /* text-align: center; */
   font-size: 30px;
 }
 
@@ -45,20 +49,23 @@ input{
   color: rgba(0, 0, 0, 0.3);
   text-decoration: line-through;
   max-width: 772px;
-  border: 1px solid gray;
+  border: 1px solid gainsboro;
   border-style: none solid solid solid;
   padding: 20px;
   display: flex;
+  background-color: white;
+ 
 }
 
 .Input-unchecked{
   opacity: 1;
   text-decoration: none;
   max-width: 772px;
-  border: 1px solid gray;
+  border: 1px solid gainsboro;
   border-style: none solid solid solid;
   padding: 20px;
   display: flex;
+  background-color: white;
 }
 
 .checkBox{
@@ -97,9 +104,9 @@ img{
 
 .itemList{
   float: left;
-  margin: 0;
+  margin: auto;
   width: 100%;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .linethrough{
@@ -112,4 +119,11 @@ img{
 
 .editInputList:focus{
   outline: none;
+}
+
+body{
+  background-color: #f5f5f5
+}
+
+.checkImg{
 }
