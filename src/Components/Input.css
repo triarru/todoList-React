@@ -1,0 +1,10 @@
+.wntbd{
+    text-align: center;
+    flex-wrap: nowrap;
+    width: 772px;
+    border: 1px solid black;
+}
+
+.arrow{
+    margin: auto;
+}
